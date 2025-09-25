@@ -1,0 +1,21 @@
+import cv2
+
+# Open webcam (0 = default camera)
+cap = cv2.VideoCapture(0)
+
+while True:
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    # Show the video frame
+    cv2.imshow("Webcam", frame)
+
+    # Exit when ESC key is pressed
+    if cv2.waitKey(1) & 0xFF == 27:
+        break
+
+# Release webcam and close window
+cap.release()
+cv2.destroyAllWindows()
